@@ -4,8 +4,19 @@ Architecture: all
 Maintainer: seu-usuario
 Filename: ./dandelion-pkg.deb
 Size: 2864
-MD5sum: ccef53483c1c9f48c99644851c07f24d
-SHA1: 6f65fb08ecd9385c4f5dac2d25a6d29c6f30fba4
-SHA256: 9ce3e622b8d92a5002cbec19dfd5be0bdffce6111d9b1ce77ebce93a50e7635c
+MD5sum: 98f097a55b30e75161713057f0729a58
+SHA1: c1acd782d4faf1d5ef814e9fa5907576f1e4824f
+SHA256: 66018d29eb2c29f07f627d2c878fe0584906c573fae914e5cddf14c78036a3be
 Description: Advanced Explorer do Dandelion OS
+
+Package: dandelion-repo
+Version: 1.0
+Architecture: all
+Maintainer: gustavo111336
+Filename: ./dandelion-repo.deb
+Size: 900
+MD5sum: 6a89e6420aa231cc532877c4acde030d
+SHA1: 000a31d992fb709f519fcdeacf311275a69dc452
+SHA256: bc338e6a700059f316847db6f3229097a6759d99637eba48c7dff89aafa7d6f1
+Description: Configuração automática do repositório Dandelion OS
 

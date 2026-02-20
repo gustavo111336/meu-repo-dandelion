@@ -1,0 +1,5 @@
+Package: dandelion-repo
+Version: 1.0
+Architecture: all
+Maintainer: gustavo111336
+Description: Configuração automática do repositório Dandelion OS
