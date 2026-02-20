@@ -1,0 +1,11 @@
+Package: dandelion-lyr
+Version: 1.0
+Architecture: all
+Maintainer: seu-usuario
+Filename: ./dandelion-pkg.deb
+Size: 2864
+MD5sum: ccef53483c1c9f48c99644851c07f24d
+SHA1: 6f65fb08ecd9385c4f5dac2d25a6d29c6f30fba4
+SHA256: 9ce3e622b8d92a5002cbec19dfd5be0bdffce6111d9b1ce77ebce93a50e7635c
+Description: Advanced Explorer do Dandelion OS
+

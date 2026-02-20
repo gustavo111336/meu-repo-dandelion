@@ -1,0 +1,168 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# ==========================================
+# 🎨 1. TABELA DE CORES E ESTILOS AVANÇADOS
+# ==========================================
+C='\033[0;36m'   # Ciano
+P='\033[0;35m'   # Roxo
+B='\033[0;34m'   # Azul
+Y='\033[1;33m'   # Amarelo
+G='\033[0;32m'   # Verde
+R='\033[0;31m'   # Vermelho
+W='\033[1;37m'   # Branco Brilhante
+DIM='\033[2m'    # Opaco/Escuro
+BLINK='\033[5m'  # Piscante (Alerta de Segurança)
+NC='\033[0m'     # Reset
+
+# ==========================================
+# 🧰 2. MÓDULO DE DETECÇÃO DE HARDWARE (DANDELION)
+# ==========================================
+print_header() {
+    
+    echo -e "${P}╭──────────────────────────────────────────╮${NC}"
+    echo -e "${P}│ 🤖 DANDELION OS - ADVANCED EXPLORER      │${NC}"
+    echo -e "${P}╰──────────────────────────────────────────╯${NC}"
+    
+    # Leitura direta do Kernel para Bateria (Ultra rápido)
+    if [ -f /sys/class/power_supply/battery/capacity ]; then
+        bat=$(cat /sys/class/power_supply/battery/capacity)
+    else
+        bat="N/A"
+    fi
+
+    # Uso de RAM
+    ram=$(free -m | awk '/Mem:/ {print $3"MB/"$2"MB"}')
+    
+    # Carga da CPU (Load Average)
+    cpu=$(uptime | awk -F'load average:' '{ print $2 }' | xargs | cut -d, -f1)
+
+    echo -e "${C}  ⚡ CPU: ${W}${cpu}${C} | 🧠 RAM: ${W}${ram}${C} | 🔋 BAT: ${W}${bat}%${NC}"
+    echo -e "${DIM}  📍 Path: $(pwd)${NC}\n"
+}
+
+# ==========================================
+# 🛡️ 3. MÓDULO DE SEGURANÇA E AUDITORIA
+# ==========================================
+get_security_warning() {
+    local item="$1"
+    # Pegar permissão octal real (ex: 777, 644)
+    local perm=$(stat -c "%a" "$item" 2>/dev/null)
+    
+    # Se for 777 (Leitura/Escrita/Execução para TODOS)
+    if [[ "$perm" == "777" ]]; then
+        echo -e "${BLINK}${R}[⚠️ 777]${NC}"
+    else
+        echo -e ""
+    fi
+}
+
+# ==========================================
+# 🗂️ 4. MEGA DICIONÁRIO DE ÍCONES (GOD MODE)
+# ==========================================
+get_icon() {
+    local item="$1"
+    local ext="${1##*.}"
+
+    # Regra 1: Pastas sempre ganham prioridade
+    if [ -d "$item" ]; then echo -e "${B}${NC}"; return; fi
+
+    # Regra 2: O Grande Mapeamento de Extensões
+    case "$ext" in
+        # 🌐 Web Development
+        html|htm)      echo -e "${R}${NC}" ;;
+        css)           echo -e "${B}${NC}" ;;
+        scss|sass)     echo -e "${P}${NC}" ;;
+        php)           echo -e "${P}󰌟${NC}" ;;
+        vue)           echo -e "${G}󰡄${NC}" ;;
+        js|mjs|cjs)    echo -e "${Y}${NC}" ;;
+        ts|tsx)        echo -e "${B}${NC}" ;;
+        
+        # 🗄️ Database
+        sql)           echo -e "${C}${NC}" ;;
+        db|sqlite|db3) echo -e "${B}${NC}" ;;
+        mongo)         echo -e "${G}${NC}" ;;
+
+        # ⚙️ Configs e Ambiente
+        yaml|yml)      echo -e "${R}${NC}" ;;
+        toml|ini)      echo -e "${DIM}${NC}" ;;
+        conf)          echo -e "${W}${NC}" ;;
+        env)           echo -e "${Y}${NC}" ;;
+        xml)           echo -e "${R}󰗀${NC}" ;;
+
+        # 📱 Android Pro & Kernel (Custom ROMs/Root)
+        prop)          echo -e "${G}${NC}" ;;
+        rc)            echo -e "${C}󰒓${NC}" ;;
+        te|cil)        echo -e "${R}󰌆${NC}" ;; # Arquivos SELinux
+        mk|bp)         echo -e "${B}󰏆${NC}" ;; # Makefiles do Android
+        smali)         echo -e "${P}󰆧${NC}" ;;
+
+        # 💻 Linguagens Core
+        cpp|cc|cxx)    echo -e "${B}${NC}" ;;
+        c)             echo -e "${B}${NC}" ;;
+        h|hpp)         echo -e "${C}${NC}" ;;
+        rs)            echo -e "${Y}🦀${NC}" ;;
+        java|class)    echo -e "${R}${NC}" ;;
+        py|pyc)        echo -e "${B}${NC}" ;;
+
+        # 📦 Pacotes, Binários e Imagens
+        so)            echo -e "${R}󰮄${NC}" ;;
+        apk|dex|apkx)  echo -e "${G}${NC}" ;;
+        img|cpio|elf)  echo -e "${R}${NC}" ;;
+        zip|tar|gz|xz|7z) echo -e "${R}${NC}" ;;
+        json)          echo -e "${Y}${NC}" ;;
+        sh|zsh|bash)   echo -e "${G}󱆃${NC}" ;;
+        md|txt|log)    echo -e "${W}${NC}" ;;
+
+        # Fallback para executáveis e outros
+        *) 
+            if [ -x "$item" ]; then echo -e "${G}󱆃${NC}"
+            else echo -e "󰈔"
+            fi
+            ;;
+    esac
+}
+
+# ==========================================
+# 🚀 5. MOTOR DE RENDERIZAÇÃO
+# ==========================================
+print_header
+
+if [[ "$@" != *"-l"* ]]; then
+    ls -1 --color=never "$@" | while read -r file; do
+        [ -z "$file" ] && continue
+        # Roda a verificação de segurança (777)
+        sec_warn=$(get_security_warning "$file")
+        echo -e " $(get_icon "$file")  $file $sec_warn"
+    done
+else
+    ls "$@" --color=never | while read -r line; do
+        if [[ "$line" == "total"* ]]; then
+            echo -e "${Y}📊 $line${NC}\n"
+            continue
+        fi
+
+        filename=$(echo "$line" | awk '{print $NF}')
+        
+        if [[ "$filename" == "." || "$filename" == ".." ]]; then
+            icon="${P}${NC}"
+            sec_warn=""
+        else
+            icon=$(get_icon "$filename")
+            sec_warn=$(get_security_warning "$filename")
+        fi
+
+        details=$(echo "$line" | awk '{$NF=""; print $0}')
+        
+        if [[ "$line" == *"->"* ]]; then
+            link_target=$(echo "$line" | awk '{print $NF}')
+            link_name=$(echo "$line" | awk '{print $(NF-2)}')
+            details=$(echo "$line" | awk '{$NF=""; $(NF-1)=""; $(NF-2)=""; print $0}')
+            echo -e " $icon  ${DIM}${details}${NC}${C}${link_name}${NC} ${P}󰁔${NC} ${DIM}${link_target}${NC} $sec_warn"
+        else
+            echo -e " $icon  ${DIM}${details}${NC}${W}${filename}${NC} $sec_warn"
+        fi
+    done
+fi
+
+echo -e "\n${C}✨ Total: $(ls -1A "$@" | wc -l) items${NC}"
+
