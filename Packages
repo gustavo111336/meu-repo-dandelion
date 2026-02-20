@@ -1,13 +1,13 @@
-Package: dandelion-lyr
-Version: 1.0
+Package: dandelion-pkg
+Version: 1.1
 Architecture: all
-Maintainer: seu-usuario
+Maintainer: gustavo111336
 Filename: ./dandelion-pkg.deb
-Size: 2864
-MD5sum: 98f097a55b30e75161713057f0729a58
-SHA1: c1acd782d4faf1d5ef814e9fa5907576f1e4824f
-SHA256: 66018d29eb2c29f07f627d2c878fe0584906c573fae914e5cddf14c78036a3be
-Description: Advanced Explorer do Dandelion OS
+Size: 4980
+MD5sum: 9912e580cffc474eca87de773226f444
+SHA1: a0a9e8179c75e8e068058aa190ce72deb16543ab
+SHA256: 6358c65e2bc52b90221faf52b934a3582e4cc637cfcb581a1c9afad4b62f89a0
+Description: Toolset essencial Dandelion OS (lyr, jgcd, frm, hello)
 
 Package: dandelion-repo
 Version: 1.0

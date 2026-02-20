@@ -1,5 +1,5 @@
-Package: dandelion-lyr
-Version: 1.0
+Package: dandelion-pkg
+Version: 1.1
 Architecture: all
-Maintainer: seu-usuario
-Description: Advanced Explorer do Dandelion OS
+Maintainer: gustavo111336
+Description: Toolset essencial Dandelion OS (lyr, jgcd, frm, hello)

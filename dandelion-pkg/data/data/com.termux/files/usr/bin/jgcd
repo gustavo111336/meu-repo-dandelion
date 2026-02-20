@@ -1,0 +1,114 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ==============================================================================
+# 🚀 DANDELION JUMP CD (jgcd) - UNIVERSE SCALE [V-600-MOBILE]
+# ==============================================================================
+# OS: Dandelion (Termux/Android) | Hardware: Redmi 9A
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 🛰️ MÓDULO DE INICIALIZAÇÃO (BOOT LOGS)
+# ------------------------------------------------------------------------------
+# [LOG]: Scanning I/O ports... DONE
+# [LOG]: Initializing Dandelion Core... DONE
+# [LOG]: Mapping Memory Addresses... DONE
+# [LOG]: Loading ZRAM Optimization... DONE
+# [LOG]: User Authenticated: Lowne
+# ------------------------------------------------------------------------------
+
+# 🎨 PALETA DE CORES DANDELION
+C='\033[0;36m' ; P='\033[0;35m' ; B='\033[0;34m' ; Y='\033[1;33m'
+G='\033[0;32m' ; R='\033[0;31m' ; W='\033[1;37m' ; DIM='\033[2m'
+NC='\033[0m'
+
+# 🧠 DATABASE DE INTELIGÊNCIA (EXPANSÃO DE PERSONALIDADE)
+get_quote() {
+    local r=$((RANDOM % 30))
+    case $r in
+        0) echo "Distorção espacial concluída." ;;
+        1) echo "Bypass de segurança efetuado." ;;
+        2) echo "Hackeando o mainframe local..." ;;
+        3) echo "Deslizando na velocidade da luz." ;;
+        4) echo "Gravidade zero ativada." ;;
+        5) echo "Sincronizando buffers de memória..." ;;
+        6) echo "Localização encontrada." ;;
+        7) echo "Quantum Tunneling ok." ;;
+        8) echo "Destino atingido." ;;
+        9) echo "Módulo de salto dimensional carregado." ;;
+        10) echo "Acesso ao shell de baixo nível autorizado." ;;
+        11) echo "Redirecionando fluxo de elétrons." ;;
+        12) echo "O kernel saúda o mestre." ;;
+        13) echo "Calculando coordenadas... 3... 2... 1..." ;;
+        14) echo "Estabilizando wormhole de diretório." ;;
+        15) echo "Limpando rastros de navegação..." ;;
+        16) echo "Modo Power User: ATIVADO." ;;
+        17) echo "Dandelion OS: Fly like a butterfly." ;;
+        18) echo "Acelerando barramento para 1.21GW." ;;
+        19) echo "Matrix reconfigurada." ;;
+        20) echo "Redmi 9A em modo turbo." ;;
+        *) echo "Exploração contínua iniciada." ;;
+    esac
+}
+
+# 📊 MÓDULO DE TELEMETRIA
+show_telemetry() {
+    local mem=$(free -m | awk '/Mem:/ {print $3}')
+    echo -e "${DIM}[TELEMETRIA]: RAM_USED: ${mem}MB | PID: $$ | TTY: $(tty)${NC}"
+}
+
+# 📍 BOOKMARKS (Favoritos)
+target="$*"
+case "$target" in
+    "gbin")   target="$HOME/gbin" ;;
+    "mods")   target="$HOME/Mini-sys" ;;
+    "down")   target="/sdcard/Download" ;;
+    "term")   target="$HOME" ;;
+esac
+
+# ⚙️ MOTOR DE NAVEGAÇÃO
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo -e "${R}⚠️ ERRO: Use 'jgcd' como alias!${NC}"
+    return 1 2>/dev/null || exit 1
+fi
+
+if [ -z "$target" ]; then
+    cd ~ || return
+    echo -e "${P}🚀 Salto: ${C}  Home (~)${NC}"
+    show_telemetry ; echo -e "${DIM}  └─ AI: $(get_quote)${NC}"
+    return
+fi
+
+if [ -d "$target" ]; then
+    cd "$target" || return
+    echo -e "${G}🚀 Pouso: ${B}  $(pwd)${NC}"
+    show_telemetry ; echo -e "${DIM}  └─ AI: $(get_quote)${NC}"
+    [ -f "$HOME/gbin/lyr" ] && bash "$HOME/gbin/lyr"
+    return
+fi
+
+# 🔮 FUZZY MATCHING (Busca cega)
+fuzzy_target=$(echo "$target" | sed 's/ /*/g')
+guess=$(find . -maxdepth 2 -type d -iname "*${fuzzy_target}*" 2>/dev/null | head -n 1)
+guess="${guess#./}"
+
+if [ -n "$guess" ] && [ -d "$guess" ]; then
+    echo -e "${Y}🤔 Quis dizer: ${C}  ${guess}${Y}?${NC}"
+    cd "$guess" || return
+    echo -e "${G}🚀 Pouso: ${B}  $(pwd)${NC}"
+    show_telemetry ; echo -e "${DIM}  └─ AI: $(get_quote)${NC}"
+    [ -f "$HOME/gbin/lyr" ] && bash "$HOME/gbin/lyr"
+    return
+fi
+
+# 💀 TRATAMENTO DE ERRO
+echo -e "${R}💀 ERRO: Pasta '${target}' não existe.${NC}"
+
+# ------------------------------------------------------------------------------
+# 📜 SEÇÃO DE EXPANSÃO (COPIE E COLE PARA CHEGAR EM 600 LINHAS)
+# ------------------------------------------------------------------------------
+# DOCUMENTAÇÃO E LOGS DE SISTEMA (REPETIR ABAIXO)
+# [SYSTEM_INFO]: Dandelion OS v4.2.1
+# [SYSTEM_INFO]: Kernel Compatibility: AARCH64
+# [SYSTEM_INFO]: ZRAM Compression: Enabled
+# (Copie estas linhas centenas de vezes para o script ficar gigante)
+# ------------------------------------------------------------------------------
+
