@@ -4,9 +4,9 @@ Architecture: all
 Maintainer: gustavo111336
 Filename: ./dandelion-pkg.deb
 Size: 4980
-MD5sum: 975c3b07612c9108e86157ab93da45c7
-SHA1: 0444afc7cb178049720bdbf1d77e23ba2abcfc6a
-SHA256: 4597f5b899a0f7ff00ec43bbe3bbb7ea5987d4682a04c9f4b577265b3eb6d465
+MD5sum: e2f061d1458be1b098ba8584210e3b13
+SHA1: 3f76175a2cf96b4f8ce423ea3d2d3c4e31fd4d5b
+SHA256: b33d4e6ce133eac1232b4da3429b9016e90e750cafbbc8a5e8db66e4ddd35709
 Description: Toolset essencial Dandelion OS (lyr, jgcd, frm, hello)
 
 Package: dandelion-repo
@@ -15,8 +15,8 @@ Architecture: all
 Maintainer: gustavo111336
 Filename: ./dandelion-repo.deb
 Size: 900
-MD5sum: 16ed6e6db0f7197743ff9960c9a930c3
-SHA1: 3c34d053c4d691d8bb2a3dfb1ea6b577a1adac99
-SHA256: 1ec64c0f83399439778c49f81cf652abc34a00ab3c08e45d50d9634078fcceaa
+MD5sum: 2ccffe59a9d03cdaef865623493448d0
+SHA1: 60dac1b93171033403587ca0e78e6dc9ee826c83
+SHA256: daa0477d84a7e8269bdc39a7c2010aa4753bd6803258445d2677f506779ad4a9
 Description: Configuração automática do repositório Dandelion OS
 
