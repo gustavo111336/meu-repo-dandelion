@@ -1,13 +1,15 @@
 Package: dandelion-pkg
-Version: 1.1
+Version: 1.0
 Architecture: all
-Maintainer: gustavo111336
+Maintainer: Gustavinho
 Filename: ./dandelion-pkg.deb
-Size: 4980
-MD5sum: e2f061d1458be1b098ba8584210e3b13
-SHA1: 3f76175a2cf96b4f8ce423ea3d2d3c4e31fd4d5b
-SHA256: b33d4e6ce133eac1232b4da3429b9016e90e750cafbbc8a5e8db66e4ddd35709
-Description: Toolset essencial Dandelion OS (lyr, jgcd, frm, hello)
+Size: 7176
+MD5sum: a1bfd21147a23399feed112d9a66f926
+SHA1: d2c7e0df64c96602cd459f2594722c999df77271
+SHA256: 21cf58d004345fc5ae9ae5be494d43c2a733475d96a66e1bc375e7bea73e26d7
+Section: utils
+Priority: optional
+Description: O comando mais foda do Dandelion OS
 
 Package: dandelion-repo
 Version: 1.0
